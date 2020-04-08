@@ -39,7 +39,6 @@ public class Order {
 	public Long getoId() {
 		return oId;
 	}
-
 	public void setoId(Long oId) {
 		this.oId = oId;
 	}
@@ -47,7 +46,6 @@ public class Order {
 	public int getQty() {
 		return qty;
 	}
-
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
@@ -55,7 +53,6 @@ public class Order {
 	public Customer getCust() {
 		return cust;
 	}
-
 	public void setCust(Customer cust) {
 		this.cust = cust;
 	}
@@ -63,7 +60,6 @@ public class Order {
 	public Product getProd() {
 		return prod;
 	}
-
 	public void setProd(Product prod) {
 		this.prod = prod;
 	}
@@ -71,9 +67,13 @@ public class Order {
 	public String getOrderDate() {
 		return orderDate;
 	}
-
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 
+	@Override
+	public String toString() {
+		return "Order [oId=" + oId + ", qty=" + qty + ", orderDate=" + orderDate + ", cust=" + cust + ", prod=" + prod
+				+ "]";
+	}
 }

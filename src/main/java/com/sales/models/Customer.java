@@ -30,7 +30,6 @@ public class Customer {
 	public Long getcId() {
 		return cId;
 	}
-
 	public void setcId(Long cId) {
 		this.cId = cId;
 	}
@@ -38,7 +37,6 @@ public class Customer {
 	public String getcName() {
 		return cName;
 	}
-
 	public void setcName(String cName) {
 		this.cName = cName;
 	}
@@ -46,8 +44,12 @@ public class Customer {
 	public List<Order> getOrders() {
 		return orders;
 	}
-
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [cId=" + cId + ", cName=" + cName + ", orders=" + orders + "]";
+	}
 }
