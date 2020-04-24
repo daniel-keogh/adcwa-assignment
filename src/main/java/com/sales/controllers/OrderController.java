@@ -1,6 +1,5 @@
 package com.sales.controllers;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -13,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.sales.exceptions.QuantityTooLargeException;
 import com.sales.models.Order;
@@ -21,15 +21,16 @@ import com.sales.services.OrderService;
 import com.sales.services.ProductService;
 
 @Controller
+@SessionAttributes({"custList", "prodList"})
 public class OrderController {
 	@Autowired
-	OrderService os;
+	private OrderService os;
 
 	@Autowired
-	CustomerService cs;
+	private CustomerService cs;
 
 	@Autowired
-	ProductService ps;
+	private ProductService ps;
 
 	@RequestMapping(value = "/showOrders.html")
 	public String getOrders(Model model) {
@@ -40,16 +41,16 @@ public class OrderController {
 	@RequestMapping(value = "/newOrder.html", method = RequestMethod.GET)
 	public String newOrderGET(Model model) {
 		Map<Long, String> customerMap = new LinkedHashMap<>();
-		cs.getAllCustomers().forEach(c -> customerMap.put(c.getcId(), c.getcName()));
-
 		Map<Long, String> productMap = new LinkedHashMap<>();
+		
+		cs.getAllCustomers().forEach(c -> customerMap.put(c.getcId(), c.getcName()));
 		ps.getAllProducts().forEach(p -> productMap.put(p.getpId(), p.getpDesc()));
 
 		model.addAttribute("custList", customerMap);
 		model.addAttribute("prodList", productMap);
 
-		Order o = new Order();
-		model.addAttribute("order", o);
+		model.addAttribute("order", new Order());
+
 		return "newOrder";
 	}
 

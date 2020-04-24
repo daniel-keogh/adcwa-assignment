@@ -16,7 +16,7 @@ import com.sales.services.ProductService;
 @Controller
 public class ProductController {
 	@Autowired
-	ProductService ps;
+	private ProductService ps;
 
 	@RequestMapping(value = "/showProducts.html")
 	public String getCustomers(Model model) {

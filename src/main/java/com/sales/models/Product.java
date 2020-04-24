@@ -60,10 +60,4 @@ public class Product {
 	public void setOrdersForProduct(List<Order> ordersForProduct) {
 		this.ordersForProduct = ordersForProduct;
 	}
-
-	@Override
-	public String toString() {
-		return "Product [pId=" + pId + ", pDesc=" + pDesc + ", qtyInStock=" + qtyInStock + ", ordersForProduct="
-				+ ordersForProduct + "]";
-	}
 }

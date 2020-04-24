@@ -71,10 +71,4 @@ public class Order {
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-
-	@Override
-	public String toString() {
-		return "Order [oId=" + oId + ", qty=" + qty + ", orderDate=" + orderDate + ", cust=" + cust + ", prod=" + prod
-				+ "]";
-	}
 }

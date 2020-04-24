@@ -16,7 +16,7 @@ import com.sales.services.CustomerService;
 @Controller
 public class CustomerController {
 	@Autowired
-	CustomerService cs;
+	private CustomerService cs;
 
 	@RequestMapping(value = "/showCustomers.html")
 	public String getCustomers(Model model) {
