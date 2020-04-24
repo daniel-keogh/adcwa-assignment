@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/test.html")
+			.antMatchers("/**")
 			.authenticated()
 			.and()
 			.formLogin();
@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public UserDetailsService userDetailsService() {
 		UserDetails user = User.withDefaultPasswordEncoder()
 								.username("user")
-								.password("password")
+								.password("user")
 								.roles("USER")
 								.build();
 
