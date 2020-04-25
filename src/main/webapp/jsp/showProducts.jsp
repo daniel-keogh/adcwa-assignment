@@ -11,6 +11,7 @@
 </head>
 <body>
 	<h1>List of Products</h1>
+
 	<table>
 		<tr>
 			<th>Product ID</th>

@@ -9,6 +9,8 @@
 <title>ADCWA Final Project</title>
 </head>
 <body>
+	<h1>New Order</h1>
+	
 	<form:form modelAttribute="order">
 		<table>
 			<tr>

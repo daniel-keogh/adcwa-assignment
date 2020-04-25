@@ -34,7 +34,7 @@ public class OrderController {
 	private ProductService ps;
 
 	@RequestMapping(value = "/showOrders.html")
-	public String getOrders(Model model) {
+	public String showOrdersGET(Model model) {
 		model.addAttribute("orders", os.getAllOrders());
 		return "showOrders";
 	}

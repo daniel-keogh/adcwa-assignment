@@ -19,7 +19,7 @@ public class ProductController {
 	private ProductService ps;
 
 	@RequestMapping(value = "/showProducts.html")
-	public String getCustomers(Model model) {
+	public String showProductsGET(Model model) {
 		model.addAttribute("products", ps.getAllProducts());
 		return "showProducts";
 	}

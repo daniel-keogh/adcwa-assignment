@@ -19,7 +19,7 @@ public class CustomerController {
 	private CustomerService cs;
 
 	@RequestMapping(value = "/showCustomers.html")
-	public String getCustomers(Model model) {
+	public String showCustomersGET(Model model) {
 		model.addAttribute("customers", cs.getAllCustomers());
 		return "showCustomers";
 	}
