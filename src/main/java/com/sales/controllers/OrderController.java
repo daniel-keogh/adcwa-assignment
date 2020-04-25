@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.sales.exceptions.NonExistentEntityException;
 import com.sales.exceptions.QuantityTooLargeException;
 import com.sales.models.Order;
 import com.sales.services.CustomerService;
@@ -59,10 +60,10 @@ public class OrderController {
 		if (result.hasErrors()) {
 			return "newOrder";
 		}
-
+		
 		try {
 			os.addNewOrder(o);
-		} catch (QuantityTooLargeException e) {
+		} catch (QuantityTooLargeException | NonExistentEntityException e) {
 			model.addAttribute("error", e);
 			return "orderError";
 		}

@@ -17,14 +17,6 @@ public class ProductService {
 		return (ArrayList<Product>) pr.findAll();
 	}
 	
-	public Product findOne(Long pId) {
-		try {
-			return pr.findById(pId).get();	
-		} catch (Exception e) {
-			return null;
-		}
-	}
-	
 	public void save(Product p) {
 		pr.save(p);
 	}

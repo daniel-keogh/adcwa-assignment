@@ -8,6 +8,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sales.exceptions.NonExistentEntityException;
 import com.sales.exceptions.QuantityTooLargeException;
 import com.sales.models.Order;
 import com.sales.models.Product;
@@ -28,15 +29,19 @@ public class OrderService {
 		return (ArrayList<Order>) or.findAll();
 	}
 	
-	public void addNewOrder(Order order) throws QuantityTooLargeException {
+	public void addNewOrder(Order order) throws QuantityTooLargeException, NonExistentEntityException {
 		// Set the order date
 		// Ref: https://stackoverflow.com/a/31138689
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		order.setOrderDate(dateFormat.format(new Date()));
 		
-		// Update Product qtyInStock
-		Product p = ps.findOne(order.getProd().getpId());
-		if (p != null) {
+		// Check customer exists
+		if (order.getCust() == null || order.getProd() == null) {
+			throw new NonExistentEntityException("Customer and/or Product does not exist");
+		} else {
+			Product p = order.getProd();
+			
+			// Update Product qtyInStock
 			int remainingQty = p.getQtyInStock() - order.getQty();
 			
 			if (remainingQty < 0) {
