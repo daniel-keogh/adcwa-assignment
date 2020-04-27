@@ -1,6 +1,7 @@
 package com.sales.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class ProductService {
 	@Autowired
 	ProductRepository pr;
 	
-	public ArrayList<Product> findAll() {
+	public List<Product> findAll() {
 		return (ArrayList<Product>) pr.findAll();
 	}
 	

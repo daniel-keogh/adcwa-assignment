@@ -41,6 +41,7 @@ public class OrderController {
 
 	@RequestMapping(value = "/newOrder.html", method = RequestMethod.GET)
 	public String newOrderGET(Model model) {
+		// Create two maps for customers & products
 		Map<Long, String> customerMap = new LinkedHashMap<>();
 		Map<Long, String> productMap = new LinkedHashMap<>();
 		
@@ -64,6 +65,7 @@ public class OrderController {
 		try {
 			os.addNewOrder(o);
 		} catch (QuantityTooLargeException | NonExistentEntityException e) {
+			// Go to the error page
 			model.addAttribute("error", e);
 			return "orderError";
 		}

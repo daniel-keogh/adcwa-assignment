@@ -36,6 +36,7 @@ public class Product {
 	public Long getpId() {
 		return pId;
 	}
+	
 	public void setpId(Long pId) {
 		this.pId = pId;
 	}
@@ -43,6 +44,7 @@ public class Product {
 	public String getpDesc() {
 		return pDesc;
 	}
+	
 	public void setpDesc(String pDesc) {
 		this.pDesc = pDesc;
 	}
@@ -50,6 +52,7 @@ public class Product {
 	public int getQtyInStock() {
 		return qtyInStock;
 	}
+	
 	public void setQtyInStock(int qtyInStock) {
 		this.qtyInStock = qtyInStock;
 	}
@@ -57,6 +60,7 @@ public class Product {
 	public List<Order> getOrdersForProduct() {
 		return ordersForProduct;
 	}
+	
 	public void setOrdersForProduct(List<Order> ordersForProduct) {
 		this.ordersForProduct = ordersForProduct;
 	}
