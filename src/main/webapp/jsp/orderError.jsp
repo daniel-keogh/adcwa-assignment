@@ -18,9 +18,9 @@
 			<th>Quantity</th>
 		</tr>
 		<tr>
-			<td>${order.prod.pId}</td>
-			<td>${order.cust.cId}</td>
-			<td>${order.qty}</td>
+			<td>${orderForm.pId}</td>
+			<td>${orderForm.cId}</td>
+			<td>${orderForm.qty}</td>
 		</tr>
 	</table>
 

@@ -13,8 +13,12 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository cr;
 	
-	public ArrayList<Customer> getAllCustomers() {
+	public ArrayList<Customer> findAll() {
 		return (ArrayList<Customer>) cr.findAll();
+	}
+	
+	public Customer findById(Long cId) {
+		return cr.findById(cId).orElseThrow();
 	}
 	
 	public void save(Customer c) {

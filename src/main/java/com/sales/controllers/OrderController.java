@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.sales.exceptions.NonExistentEntityException;
 import com.sales.exceptions.QuantityTooLargeException;
-import com.sales.models.Order;
+import com.sales.models.OrderForm;
 import com.sales.services.CustomerService;
 import com.sales.services.OrderService;
 import com.sales.services.ProductService;
@@ -35,7 +35,7 @@ public class OrderController {
 
 	@RequestMapping(value = "/showOrders.html")
 	public String showOrdersGET(Model model) {
-		model.addAttribute("orders", os.getAllOrders());
+		model.addAttribute("orders", os.findAll());
 		return "showOrders";
 	}
 
@@ -44,19 +44,19 @@ public class OrderController {
 		Map<Long, String> customerMap = new LinkedHashMap<>();
 		Map<Long, String> productMap = new LinkedHashMap<>();
 		
-		cs.getAllCustomers().forEach(c -> customerMap.put(c.getcId(), c.getcName()));
-		ps.getAllProducts().forEach(p -> productMap.put(p.getpId(), p.getpDesc()));
+		cs.findAll().forEach(c -> customerMap.put(c.getcId(), c.getcName()));
+		ps.findAll().forEach(p -> productMap.put(p.getpId(), p.getpDesc()));
 
 		model.addAttribute("custList", customerMap);
 		model.addAttribute("prodList", productMap);
 
-		model.addAttribute("order", new Order());
+		model.addAttribute("orderForm", new OrderForm());
 
 		return "newOrder";
 	}
 
 	@RequestMapping(value = "/newOrder.html", method = RequestMethod.POST)
-	public String newOrderPOST(@Valid @ModelAttribute("order") Order o, BindingResult result, Model model) {
+	public String newOrderPOST(@Valid @ModelAttribute("orderForm") OrderForm o, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "newOrder";
 		}

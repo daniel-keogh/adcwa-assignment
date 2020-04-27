@@ -20,14 +20,13 @@ public class CustomerController {
 
 	@RequestMapping(value = "/showCustomers.html")
 	public String showCustomersGET(Model model) {
-		model.addAttribute("customers", cs.getAllCustomers());
+		model.addAttribute("customers", cs.findAll());
 		return "showCustomers";
 	}
 
 	@RequestMapping(value = "/addCustomer.html", method = RequestMethod.GET)
 	public String addCustomerGET(Model model) {
-		Customer c = new Customer();
-		model.addAttribute("customer", c);
+		model.addAttribute("customer", new Customer());
 		return "addCustomer";
 	}
 

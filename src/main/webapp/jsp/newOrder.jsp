@@ -11,19 +11,19 @@
 <body>
 	<h1>New Order</h1>
 	
-	<form:form modelAttribute="order">
+	<form:form modelAttribute="orderForm">
 		<table>
 			<tr>
 				<td>Customer:</td>
 				<td>
-					<form:select path="cust" items="${custList}"></form:select>
+					<form:select path="cId" items="${custList}"></form:select>
 				</td>
 			</tr>
 
 			<tr>
 				<td>Product</td>
 				<td>
-					<form:select path="prod" items="${prodList}"></form:select>
+					<form:select path="pId" items="${prodList}"></form:select>
 				</td>
 			</tr>
 

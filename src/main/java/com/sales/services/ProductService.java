@@ -13,11 +13,16 @@ public class ProductService {
 	@Autowired
 	ProductRepository pr;
 	
-	public ArrayList<Product> getAllProducts() {
+	public ArrayList<Product> findAll() {
 		return (ArrayList<Product>) pr.findAll();
+	}
+	
+	public Product findById(Long pId) {
+		return pr.findById(pId).orElseThrow();
 	}
 	
 	public void save(Product p) {
 		pr.save(p);
 	}
 }
+	
