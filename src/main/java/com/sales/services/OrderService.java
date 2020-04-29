@@ -58,7 +58,7 @@ public class OrderService {
 		int remainingQty = p.getQtyInStock() - order.getQty();
 		
 		if (remainingQty < 0) {
-			throw new QuantityTooLargeException("Quantity too Large: Product stock = " + p.getQtyInStock());
+			throw new QuantityTooLargeException("Quantity too large: Product stock = " + p.getQtyInStock());
 		}
 		
 		// Update Product qtyInStock
