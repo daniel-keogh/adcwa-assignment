@@ -26,7 +26,9 @@
 			</tr>
 
 			<tr>
-				<td colspan="2"><input type="submit" value="Add"></td>
+				<td colspan="2">
+					<input type="submit" value="Add">
+				</td>
 			</tr>
 		</table>
 	</form:form>

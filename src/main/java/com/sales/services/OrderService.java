@@ -38,7 +38,7 @@ public class OrderService {
 		Customer c;
 		
 		try {
-			// Get the IDs of the Product & Customer 
+			// Get the Product & Customer by their IDs
 			c = cs.findById(of.getcId());
 			p = ps.findById(of.getpId());
 		} catch (NoSuchElementException e) {
